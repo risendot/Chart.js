@@ -7,7 +7,9 @@ var color = require('chartjs-color');
 module.exports = function(Chart) {
 	// Global Chart helpers object for utility methods and classes
 	var helpers = Chart.helpers = {};
-
+	if (typeof window === 'undefined') {
+   		global.window = {}
+	}
 	// -- Basic js utility methods
 	helpers.each = function(loopable, callback, self, reverse) {
 		// Check to see if null or undefined firstly.
